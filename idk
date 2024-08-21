@@ -3,7 +3,13 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Clicker Money game or smth", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 local Tab = Window:MakeTab({
-	Name = "Clickers",
+	Name = "Currencies",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab1 = Window:MakeTab({
+	Name = "Runes",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -46,7 +52,7 @@ Tab:AddButton({
 
 
 local runeGainActive
-Tab:AddToggle({
+Tab1:AddToggle({
    	Name = "Toggle Noob Runes",
 	Default = false,
 	Callback = function(Value)
@@ -63,7 +69,7 @@ Tab:AddToggle({
 })
 
 local rune2GainActive
-Tab:AddToggle({
+Tab1:AddToggle({
    	Name = "Toggle Rebirth Runes",
 	Default = false,
 	Callback = function(Value)
@@ -80,7 +86,7 @@ Tab:AddToggle({
 })
 
 Tab:AddButton({
-	Name = "Click Gain OP",
+	Name = "Click Gain OP (Stacks + Makes Lag",
 	Callback = function()
       		while true do
 	local args = {
@@ -93,8 +99,28 @@ end
   	end    
 })
 
-local rune3GainActive
 Tab:AddToggle({
+   	Name = "Toggle Click Gain OP (Doesn't stack with itself)",
+	Default = false,
+	Callback = function(Value)
+		clickGainActive = Value
+		if clickGainActive then
+			spawn(function()
+				while clickGainActive do
+					local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Clicks.clicked:FireServer(unpack(args))
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
+})
+
+local rune3GainActive
+Tab1:AddToggle({
    	Name = "Toggle Expert/Time Runes",
 	Default = false,
 	Callback = function(Value)
@@ -135,3 +161,65 @@ game:GetService("ReplicatedStorage").Events.timeToken:FireServer(unpack(args))
 	end    
 })
 
+local rune4GainActive
+Tab1:AddToggle({
+   	Name = "Toggle Celestial Runes",
+	Default = false,
+	Callback = function(Value)
+		rune4GainActive = Value
+		if rune4GainActive then
+			spawn(function()
+				while rune4GainActive do
+					local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Runes.celestialRune:FireServer(unpack(args))
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
+})
+
+local rune5GainActive
+Tab1:AddToggle({
+   	Name = "Toggle Mystic Runes",
+	Default = false,
+	Callback = function(Value)
+		rune5GainActive = Value
+		if rune5GainActive then
+			spawn(function()
+				while rune5GainActive do
+					local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Runes.mysticRune:FireServer(unpack(args))
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
+})
+
+local rune6GainActive
+Tab1:AddToggle({
+   	Name = "Toggle Galactic Runes",
+	Default = false,
+	Callback = function(Value)
+		rune6GainActive = Value
+		if rune6GainActive then
+			spawn(function()
+				while rune6GainActive do
+					local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Runes.galacticRune:FireServer(unpack(args))
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
+})
