@@ -86,7 +86,7 @@ Tab1:AddToggle({
 })
 
 Tab:AddButton({
-	Name = "Click Gain OP (Stacks + Makes Lag",
+	Name = "OP Click Gain (Stacks + Makes Lag)",
 	Callback = function()
       		while true do
 	local args = {
