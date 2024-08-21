@@ -134,3 +134,24 @@ game:GetService("ReplicatedStorage").Events.timeToken:FireServer(unpack(args))
 		end
 	end    
 })
+
+local galacticRune
+Tab:AddToggle({
+   	Name = "Toggle Expireimental Galactic Rune Gain",
+	Default = false,
+	Callback = function(Value)
+		galacticRune = Value
+		if galacticRune then
+			spawn(function()
+				while galacticRune do
+					local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Runes.galacticRune:FireServer(unpack(args))
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
+})
