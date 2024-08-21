@@ -26,7 +26,7 @@ Tab:AddToggle({
 })
 
 Tab:AddButton({
-    Name = "Upgrade all max V2",
+    Name = "Upgrade everything you can (only upgrades once)",
     Callback = function()
         local args = {
             [1] = game:GetService("Players").LocalPlayer
@@ -134,8 +134,3 @@ game:GetService("ReplicatedStorage").Events.timeToken:FireServer(unpack(args))
 		end
 	end    
 })
-
-
---
-
---
