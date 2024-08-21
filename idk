@@ -30,85 +30,21 @@ Tab:AddToggle({
 	Name = "Toggle upgrade all",
 	Default = false,
 	Callback = function(Value)
-		upgrades = Value
-		if upgrades then
-			spawn(function()
-				while upgrades do
-					local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
+upgrades = Value
+if upgrades then
+    spawn(function()
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer
+        }
+        
+        while upgrades do
+            for i = 1, 12 do
+                game:GetService("ReplicatedStorage").Events.Upgrades["upg" .. i]:FireServer(unpack(args))
+            end
+            wait(0.000000000000001)
+        end
+    end)
+end
 
-game:GetService("ReplicatedStorage").Events.Upgrades.upg1:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg2:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg3:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg4:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg5:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg6:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg7:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg8:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg9:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg10:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg11:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Upgrades.upg12:FireServer(unpack(args))
-
-					wait(0.000000000000001)
-				end
-			end)
-		end
 	end    
 })
