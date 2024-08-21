@@ -25,28 +25,6 @@ Tab:AddToggle({
 	end    
 })
 
-local upgrades = false
-Tab:AddToggle({
-    Name = "Toggle upgrade all",
-    Default = false,
-    Callback = function(Value)
-        if Value then
-            spawn(function()
-                local args = {
-                    [1] = game:GetService("Players").LocalPlayer
-                }
-
-                for _ = 1, 18 do
-                    for i = 1, 12 do
-                        game:GetService("ReplicatedStorage").Events.Upgrades["upg" .. i]:FireServer(unpack(args))
-                    end
-                    wait(0.01) -- You can adjust the wait time if needed
-                end
-            end)
-        end
-    end
-})
-
 Tab:AddButton({
     Name = "Upgrade all max V2",
     Callback = function()
@@ -114,3 +92,50 @@ Tab:AddButton({
 end
   	end    
 })
+
+local rune3GainActive
+Tab:AddToggle({
+   	Name = "Toggle Expert/Time Runes",
+	Default = false,
+	Callback = function(Value)
+		rune3GainActive = Value
+		if rune3GainActive then
+			spawn(function()
+				while rune3GainActive do
+					local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Runes.expertRune:FireServer(unpack(args))
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
+})
+
+local timeTokenGainActive
+Tab:AddToggle({
+   	Name = "Toggle OP Time Token Gain",
+	Default = false,
+	Callback = function(Value)
+		timeTokenGainActive = Value
+		if timeTokenGainActive then
+			spawn(function()
+				while timeTokenGainActive do
+					local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.timeToken:FireServer(unpack(args))
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
+})
+
+
+--
+
+--
