@@ -48,20 +48,24 @@ Tab:AddToggle({
 })
 
 Tab:AddButton({
-	Name = "Upgrade all max",
-	Callback = function()
-      		local args = {
-                    [1] = game:GetService("Players").LocalPlayer
-                }
+    Name = "Upgrade all max V2",
+    Callback = function()
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer
+        }
 
-                for _ = 1, 18 do
-                    for i = 1, 12 do
-                        game:GetService("ReplicatedStorage").Events.Upgrades["upg" .. i]:FireServer(unpack(args))
-                    end
-                    wait(0.01) -- You can adjust the wait time if needed
-		end
-  	end    
+        -- Optional initial delay before starting the loop
+        wait(0.1)
+
+        for _ = 1, 18 do
+            for i = 1, 12 do
+                game:GetService("ReplicatedStorage").Events.Upgrades["upg" .. i]:FireServer(unpack(args))
+            end
+            wait(0.1) -- Slightly increased wait time to ensure smooth execution
+        end
+    end    
 })
+
 
 local runeGainActive
 Tab:AddToggle({
