@@ -54,24 +54,24 @@ Tab:AddToggle({
 
 local upgrades = false
 Tab:AddToggle({
-	Name = "Toggle upgrade all",
-	Default = false,
-	Callback = function(Value)
-upgrades = Value
-if upgrades then
-    spawn(function()
-        local args = {
-            [1] = game:GetService("Players").LocalPlayer
-        }
-        
-        while upgrades do
-            for i = 1, 12 do
-                game:GetService("ReplicatedStorage").Events.Upgrades["upg" .. i]:FireServer(unpack(args))
-            end
-            wait(0.000000000000001)
-        end
-    end)
-end
+    Name = "Toggle upgrade all",
+    Default = false,
+    Callback = function(Value)
+        upgrades = Value
+        if upgrades then
+            spawn(function()
+                local args = {
+                    [1] = game:GetService("Players").LocalPlayer
+                }
 
-	end    
+                while upgrades do
+                    for i = 1, 12 do
+                        game:GetService("ReplicatedStorage").Events.Upgrades["upg" .. i]:FireServer(unpack(args))
+                    end
+                    wait(0.01) -- Adjust this wait time if necessary
+                end
+            end)
+        end
+    end
 })
+
