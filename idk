@@ -82,25 +82,20 @@ Tab:AddToggle({
 	end    
 })
 
-local clickGainActive
-Tab:AddToggle({
-   	Name = "Toggle Click Gain OP",
-	Default = false,
-	Callback = function(Value)
-		clickGainActive = Value
-		if clickGainActive then
-			spawn(function()
-				while clickGainActive do
-					local args = {
-    [1] = game:GetService("Players").LocalPlayer
-}
+Tab:AddButton({
+    Name = "Click Gain OP",
+    Callback = function()
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer
+        }
 
-game:GetService("ReplicatedStorage").Events.Clicks.clicked:FireServer(unpack(args))
-
-					wait(0.0000000000000000000000001)
-				end
-			end)
-		end
-	end    
+        spawn(function()
+            while true do
+                game:GetService("ReplicatedStorage").Events.Clicks.clicked:FireServer(unpack(args))
+                wait(0.0000000000000000000000001)
+            end
+        end)
+    end    
 })
+
 
