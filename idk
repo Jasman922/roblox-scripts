@@ -1,0 +1,114 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Clicker Money game or smth", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Clickers",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local moneyGainActive = false
+Tab:AddToggle({
+	Name = "Toggle OP Money Gain",
+	Default = false,
+	Callback = function(Value)
+		moneyGainActive = Value
+		if moneyGainActive then
+			spawn(function()
+				while moneyGainActive do
+					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
+					wait(0.000000000000001)
+				end
+			end)
+		end
+	end    
+})
+
+local upgrades = false
+Tab:AddToggle({
+	Name = "Toggle upgrade all",
+	Default = false,
+	Callback = function(Value)
+		upgrades = Value
+		if upgrades then
+			spawn(function()
+				while upgrades do
+					local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg1:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg2:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg3:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg4:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg5:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg6:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg7:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg8:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg9:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg10:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg11:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrades.upg12:FireServer(unpack(args))
+
+					wait(0.000000000000001)
+				end
+			end)
+		end
+	end    
+})
