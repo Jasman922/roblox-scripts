@@ -30,22 +30,37 @@ Tab:AddToggle({
     Name = "Toggle upgrade all",
     Default = false,
     Callback = function(Value)
-        upgrades = Value
-        if upgrades then
+        if Value then
             spawn(function()
                 local args = {
                     [1] = game:GetService("Players").LocalPlayer
                 }
 
-                while upgrades do
+                for _ = 1, 18 do
                     for i = 1, 12 do
                         game:GetService("ReplicatedStorage").Events.Upgrades["upg" .. i]:FireServer(unpack(args))
                     end
-                    wait(0.01) -- Adjust this wait time if necessary
+                    wait(0.01) -- You can adjust the wait time if needed
                 end
             end)
         end
     end
+})
+
+Tab:AddButton({
+	Name = "Upgrade all max",
+	Callback = function()
+      		local args = {
+                    [1] = game:GetService("Players").LocalPlayer
+                }
+
+                for _ = 1, 18 do
+                    for i = 1, 12 do
+                        game:GetService("ReplicatedStorage").Events.Upgrades["upg" .. i]:FireServer(unpack(args))
+                    end
+                    wait(0.01) -- You can adjust the wait time if needed
+		end
+  	end    
 })
 
 local runeGainActive
