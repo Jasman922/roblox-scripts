@@ -18,34 +18,7 @@ Tab:AddToggle({
 			spawn(function()
 				while moneyGainActive do
 					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					game:GetService("ReplicatedStorage").Events.Clicks.factoryRan:FireServer()
-					wait(0.000000000000000000001)
+					wait(0.0000000000000000000000001)
 				end
 			end)
 		end
@@ -73,5 +46,39 @@ Tab:AddToggle({
             end)
         end
     end
+})
+
+local runeGainActive
+Tab:AddToggle({
+   	Name = "Toggle Noob Runes",
+	Default = false,
+	Callback = function(Value)
+		runeGainActive = Value
+		if runeGainActive then
+			spawn(function()
+				while runeGainActive do
+					game:GetService("ReplicatedStorage").Events.Runes.noobRune:FireServer()
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
+})
+
+local rune2GainActive
+Tab:AddToggle({
+   	Name = "Toggle Rebirth Runes",
+	Default = false,
+	Callback = function(Value)
+		rune2GainActive = Value
+		if rune2GainActive then
+			spawn(function()
+				while rune2GainActive do
+					game:GetService("ReplicatedStorage").Events.Runes.rebirthRune:FireServer()
+					wait(0.0000000000000000000000001)
+				end
+			end)
+		end
+	end    
 })
 
